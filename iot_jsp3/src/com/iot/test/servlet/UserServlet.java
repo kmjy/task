@@ -49,20 +49,9 @@ public class UserServlet extends HttpServlet {
 		PrintWriter out = res.getWriter();
 		String uri = req.getRequestURI();
 		String cmd = getCommand(uri);
-		if (cmd.equals("login")) {
-			HashMap<String, Object> hm = us.login(req);
-			out.println(gs.toJson(hm));
-		}else if (cmd.equals("logout")) {
-			us.logout(req);
-			RequestDispatcher rd = req.getRequestDispatcher("/view/user/login");
-			rd.forward(req, res);
-		}else if(cmd.equals("signin")) {
+		if (cmd.equals("signin")) {
 			us.signin(req);
 			out.println(req.getAttribute("resStr"));
-		}else if(cmd.equals("list")) {
-			 ArrayList<UserClass> userList = us.getUserList();
-			out.println(gs.toJson(userList));
-			
-	}
+		}
 }
 }

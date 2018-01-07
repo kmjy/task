@@ -2,19 +2,18 @@
     pageEncoding="UTF-8"%>
 <%
 String loginMenu = "Login";
-String loginUrl = rootPath + "/view/user/login";
-if(user!=null){
-	loginMenu = "Logout";
-	loginUrl = rootPath + "/user/logout";
-}
+String loginUrl = rootPath + "/view/index";
+
 %>
 <script src="<%=rootPath%>/ui/js/jquery-3.2.1.js"></script>
 <script src="<%=rootPath%>/ui/js/bootstrap.min.js"></script>
+
+
 <link rel="stylesheet" href="<%=rootPath%>/ui/css/bootstrap.min.css">
 <link rel="stylesheet" href="<%=rootPath%>/ui/css/bootstrap-theme.min.css">
 <link rel="stylesheet" href="<%=rootPath%>/ui/css/common.css">
 
-  <!-- Bootstrap core CSS -->
+     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom fonts for this template -->
@@ -41,15 +40,16 @@ if(user!=null){
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Project name</a>
+          <a class="navbar-brand" href="#">KMJ ARTSPACE</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-           <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a> </li>
-            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li>
+          
             <li class="active"><a href="<%=rootPath%>/">Home</a></li>
-            <li><a href="<%=loginUrl%>"><%=loginMenu%></a></li>
-            <li><a href="<%=rootPath%>/view/user/list">User List</a></li>
+            
+            <li><a href="<%=rootPath%>/view/user/about">About</a></li>
+            <li><a href="<%=rootPath%>/view/user/project">project</a></li>
+            <li><a href="<%=rootPath%>/view/user/signin">Contact</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>

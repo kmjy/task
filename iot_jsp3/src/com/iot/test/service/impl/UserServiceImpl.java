@@ -1,6 +1,5 @@
 package com.iot.test.service.impl;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
@@ -16,35 +15,8 @@ public class UserServiceImpl implements UserService {
 	private Gson gs = new Gson();
 	private UserDAO ud = new UserDAOImpl();
 
-	@Override
-	public HashMap<String, Object> login(HttpServletRequest req) {
-		UserClass uc = gs.fromJson(req.getParameter("param"), UserClass.class);
-		UserClass checkUc = ud.selectUser(uc.getUiId());
 
-		HashMap<String, Object> hm = new HashMap<String, Object>();
-		hm.put("msg", "오 로그인 성공");
-		hm.put("login", "ok");
-		if (checkUc != null) {
-			if (!checkUc.getUiPwd().equals(uc.getUiPwd())) {
-				hm.put("msg", "비번확인요망");
-				hm.put("login", "no");
-			} else {
-				HttpSession hs = req.getSession();
-				hs.setAttribute("user", checkUc);
-			}
-		} else {
-			hm.put("msg", "아디확인요망");
-			hm.put("login", "no");
-		}
-		return hm;
-	}
-
-	@Override
-	public void logout(HttpServletRequest req) {
-		HttpSession hs = req.getSession();
-		hs.invalidate();
-
-	}
+	
 
 	@Override
 	public void signin(HttpServletRequest req) {
@@ -68,9 +40,4 @@ public class UserServiceImpl implements UserService {
 
 	}
 
-	@Override
-	public ArrayList<UserClass> getUserList() {
-		
-		return  ud.selectUserList();
-	}
 }

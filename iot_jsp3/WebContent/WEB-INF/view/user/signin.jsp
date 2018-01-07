@@ -3,10 +3,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>정보입력 </title>
 </head>
 <link rel="stylesheet" href="<%=rootPath%>/ui/css/sign.css" />
 <body>
+
 	<jsp:include page="/WEB-INF/view/common/header.jsp" flush="false" />
 
 	<div class="container">
@@ -59,7 +60,7 @@
 </body>
 <script>
 function signin(){
-	//"uiName,uiAge,uiId,uiPwd,ciNo,address"
+	
 	var uiName = $("#uiName").val().trim();
 	var uiAge = $("#uiAge").val().trim();
 	var uiId = $("#uiId").val().trim();
@@ -76,7 +77,7 @@ function signin(){
 			var obj = JSON.parse(res);
 			alert(obj.msg);
 			if(obj.result=="ok"){
-				location.href="/view/user/login";
+				location.href="/view/signin";
 			}
 		},
 		error:function(xhr,status,error){
@@ -84,24 +85,9 @@ function signin(){
 		}		
 	})
 }
-$(document).ready(function(){
-	$.ajax({
-		url : '/class/list',
-		type : 'get',
-		success:function(res){
-			var list = JSON.parse(res);
-			var str = "";
-			for(var ci of list){
-				str += "<option value='" + ci.ciNo + "'>" + ci.ciName +"</option>";
-			}
-			//document.getElementById("ciNo").insertAdjacentHTML("beforeend",str);
-			$("#ciNo").html(str);
-		},
-		error:function(xhr,status,error){
-			
-		}
-	});
-	
-});
+
+
+
+
 </script>
 </html>
